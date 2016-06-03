@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" >
+  <title > Practice Flask with bootstrap</title>
+  <meta name=viewport content="width=device-width,initial-scale=1">
+  <link href="{{url_for('static',filename='firefox.ico')}}" rel="shorcut icon">
+  <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+</head>
+
+<header>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid" style="margin-top:10px; margin-bottom: 3px; height:30px; margin-right:10px">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          <img style="max-width:50px;margin-top: -7px;" src="{{url_for('static',filename='images/mainlogo.png')}}"
+        </a>
+      </div>
+      <a href="/dashboard/"><button type="button" class="btn btn-primary" aria-label="Left Align"
+      style="margin-top:3px; margin-bottom: 3px; height:30px; margin-right:10px">
+        <span  aria-hidden="true" class="glyphicon glyphicon-star"></span>Index
+     </button></a>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+       <ul class="nav navbar-nav navbar-right">
+         <!-- Button trigger modal -->
+        <a href="/register/" data-toggle="modal"  >
+            <span  aria-hidden="true" class="glyphicon glyphicon-globe"></span>Sign up&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </a>
+        <a href="/login/" data-toggle="modal"  >
+            <span  aria-hidden="true" class="glyphicon glyphicon-log-in"></span>Log in&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </a>
+        <a href="/donate/"  >
+            <span  aria-hidden="true" class="glyphicon glyphicon-thumbs-up"></span>Support&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </a>
+
+        <!-- Modal Sign Up -> Register-->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Register</h4>
+              </div>
+
+              <div class="modal-body">
+
+                <form action="/register/" method="get">
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon1">Username</span>
+                      <input type="text" name="username" id="username" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                      <input type="text" name="email" id="email" class="form-control" placeholder="e-mail" aria-describedby="basic-addon2">
+                      <span class="input-group-addon" id="basic-addon2">@example.com</span>
+                    </div>
+                    <br>
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon1">Password</span>
+                      <input type="password" name="password" id="password" class="form-control" placeholder="password" aria-describedby="basic-addon1">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon1">Repeat Password</span>
+                      <input type="password" name="password2" id="password2" class="form-control" placeholder="password" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Sign in -->
+        <div class="modal fade" id="ModalSignin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Sign in</h4>
+              </div>
+
+              <div class="modal-body">
+
+                  <form action="/login/" method="get" class="navbar-form">
+
+                      <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">Login</span>
+                        <input type="text" name="username" id="username" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                        <input type="password" name="password" id="password" class="form-control" placeholder="password" aria-describedby="basic-addon1">
+                      </div>
+                      <br>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+
+                  </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+   </nav>
+</header>
+
+<body>
+
+  <script src="http://code.jquery.com/jquery-1.12.2.min.js">
+  </script>
+  <script type="text/javascript" src="{{url_for('static',filename='js/bootstrap.min.js')}}">
+  </script>
+
+  <center><div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/q7Bo_J8x_dw" frameborder="0" allowfullscreen></iframe></div><br>
+  </center>
+</body>

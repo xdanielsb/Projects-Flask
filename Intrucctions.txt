@@ -1,0 +1,9 @@
+#For install Flask is necesary 
+
+-install virtualenv
+	pip install virtualenv
+	pip install Flask
+	Now we are going to prove that the module works:
+		from flask import Flask
+
+##This tutorial was done by Daniel Santos

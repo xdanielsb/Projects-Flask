@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" >
+  <title > Practice Flask with bootstrap</title>
+  <meta name=viewport content="width=device-width,initial-scale=1">
+  <link href="{{url_for('static',filename='firefox.ico')}}" rel="shorcut icon">
+  <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static',filename='fonts/*')}}" rel="stylesheet">
+</head>
+
+<header>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid" style="margin-top:10px; margin-bottom: 3px; height:30px; margin-right:10px">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          <img style="max-width:50px;margin-top: -7px;" src="{{url_for('static',filename='images/mainlogo.png')}}"
+        </a>
+      </div>
+      <a href="/dashboard/"><button type="button" class="btn btn-primary" aria-label="Left Align"
+      style="margin-top:3px; margin-bottom: 3px; height:30px; margin-right:10px">
+        <span  aria-hidden="true" class="glyphicon glyphicon-star"></span>Index
+     </button></a>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+       <ul class="nav navbar-nav navbar-right">
+
+         {% if session.logged_in %} <!-- if te variable exist -->
+            <a href="/logout/" data-toggle="modal"><span  aria-hidden="true" class="glyphicon glyphicon-log-out"></span>Log out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a href="/donate/"  ><span  aria-hidden="true" class="glyphicon glyphicon-thumbs-up"></span>Support&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        {%else%}
+            <a href="/register/" data-toggle="modal" ><span  aria-hidden="true" class="glyphicon glyphicon-globe"></span>Sign up&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a href="/login/" data-toggle="modal"><span  aria-hidden="true" class="glyphicon glyphicon-log-in"></span>Log in&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a href="/donate/"  ><span  aria-hidden="true" class="glyphicon glyphicon-thumbs-up"></span>Support&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        {%endif%}
+
+      </ul>
+    </div>
+   </nav>
+</header>
+
+<body>
+
+  <script src="http://code.jquery.com/jquery-1.12.2.min.js">
+  </script>
+  <script type="text/javascript" src="{{url_for('static',filename='js/bootstrap.min.js')}}">
+  </script>
+
+  <div class="border-row" style="width:100%; margin-bottom:15px;">
+  </div>
+  <div class="container-fluid"  style="min-height:100%; width:80%">
+
+    {%with messages= get_flashed_messages()%}
+      {%if messages%}
+        {%for message in messages%}
+        <!-- alert-warning-> red globe alert-info-> blue glob alert-succes->blue globs -->
+          <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span></button>
+              <!-- &times; means an x-->
+            {{message}}
+          </div>
+        {%endfor%}
+      {%endif%}
+    {%endwith%}
+
+    {%block body%}
+
+    {%endblock%}
+  <div>
+
+</body>

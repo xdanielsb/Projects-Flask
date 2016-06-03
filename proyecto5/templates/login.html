@@ -1,0 +1,18 @@
+{%extends "header.html" %}
+{%block body%}
+
+<div class="container" >
+  <br>
+  <h4> Please Login: </h4>
+  <br>
+  <form action="/login/"  method="post">
+    <input type="text"  placeholder="username"
+    name='username' id='username' >
+    <input type="text" class="" placeholder="Password"
+    name="password" id="password" >
+    <input class="btn btn-default" type="submit" value="Login">
+  </form>
+  <p>{{error}}</p>
+</div>
+
+{%endblock%}
